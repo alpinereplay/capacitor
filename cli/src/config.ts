@@ -273,11 +273,13 @@ async function loadIOSConfig(
   const platformDir = extConfig.ios?.path ?? 'ios';
   const platformDirAbs = resolve(rootDir, platformDir);
   const scheme = extConfig.ios?.scheme ?? 'App';
-  const nativeProjectDir = 'App';
+  const nativeProjectDir = extConfig.ios?.nativeProjectDir ?? 'App';
   const nativeProjectDirAbs = resolve(platformDirAbs, nativeProjectDir);
-  const nativeTargetDir = `${nativeProjectDir}/App`;
+  const nativeTargetDirName = extConfig.ios?.nativeTargetDir ?? 'App';
+  const nativeTargetDir = `${nativeProjectDir}/${nativeTargetDirName}`;
   const nativeTargetDirAbs = resolve(platformDirAbs, nativeTargetDir);
-  const nativeXcodeProjDir = `${nativeProjectDir}/App.xcodeproj`;
+  const nativeXcodeProjDirName = extConfig.ios?.nativeXcodeProjDirName ?? 'App';
+  const nativeXcodeProjDir = `${nativeProjectDir}/${nativeXcodeProjDirName}`;
   const nativeXcodeProjDirAbs = resolve(platformDirAbs, nativeXcodeProjDir);
   const nativeXcodeWorkspaceDirAbs = lazy(() =>
     determineXcodeWorkspaceDirAbs(nativeProjectDirAbs),

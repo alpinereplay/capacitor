@@ -346,6 +346,21 @@ export interface CapacitorConfig {
      * @default false
      */
     limitsNavigationsToAppBoundDomains?: boolean;
+
+    /**
+     * 
+     */
+     nativeProjectDir?: string;
+
+    /**
+     * 
+     */
+     nativeTargetDir?: string;
+
+    /**
+     * 
+     */
+     nativeXcodeProjDirName?: string;
   };
 
   server?: {
